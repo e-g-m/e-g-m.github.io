@@ -1,0 +1,40 @@
+<div class='page-header'>
+
+    <h1>8 Colours</h1>
+
+</div>
+
+<form name="form">
+
+    <div class="form-group">
+
+        <input ng-model="form.url" class="form-control" placeholder="http://i.imgur.com/2HZCGsX.jpg" required />
+
+    </div>
+
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-default btn-lg" ng-click="submitForm( form )" ng-disabled="form.$invalid">Load Image</button>
+
+    </div>
+
+</form>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="thumbnail">
+            <img ng-src="{{ image.url }}" ng-click="getAllColours()"></img>
+        </div>
+    </div>
+    <div class="col-sm-3" ng-repeat="colour in image.colours">
+
+        <div class="thumbnail">
+
+            <div>
+                <p>{{ color }}
+                    <div style=" background-color: {{ colour }}; display: block; width: 100%; height: 200px;" ng-click="getColour(colour)"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
